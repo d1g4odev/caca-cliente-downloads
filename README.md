@@ -74,12 +74,24 @@ Na página que abrir, desça até **Assets** e baixe o arquivo do seu sistema:
 1. Dê **dois cliques** no arquivo `.dmg`.
 2. **Arraste o ícone do Caça-Cliente pra pasta Applications** (Aplicativos).
 3. Abra o **Finder** → **Aplicativos** e dê **dois cliques** no Caça-Cliente.
-4. ⚠️ O Mac vai dizer que o **desenvolvedor não foi identificado**. É normal (o certificado da Apple é pago). Para abrir: **botão direito** (ou Ctrl+clique) no app → **Abrir** → **Abrir**. Só precisa fazer isso na primeira vez.
-5. Se aparecer **"o app está danificado"**, abra o **Terminal** (Aplicativos → Utilitários → Terminal), cole o comando abaixo e tente abrir de novo:
-   ```bash
-   xattr -cr /Applications/Caca-Cliente.app
-   ```
-   Esse comando só tira o aviso de quarentena — não mexe no app.
+4. ⚠️ Na primeira vez, o Mac vai mostrar **"O item Caca-Cliente não foi aberto"** (ou "desenvolvedor não identificado"). É normal: o app ainda não tem o certificado pago da Apple. **Clique em OK** — nunca em "Mover para o Lixo" — e libere de um destes jeitos:
+
+   **Jeito 1 — pelos Ajustes** (macOS 15 Sequoia ou mais novo):
+   1. Abra **Ajustes do Sistema** → **Privacidade e Segurança**.
+   2. Desça até **Segurança** e clique em **Abrir Mesmo Assim**, ao lado de *"O uso de 'Caca-Cliente' foi bloqueado"*.
+   3. Digite a senha do Mac e confirme em **Abrir Mesmo Assim**.
+
+   **Jeito 2 — pelo Terminal** (funciona em qualquer versão e resolve também o "app está danificado"):
+   1. Abra o **Terminal** (Aplicativos → Utilitários → Terminal).
+   2. Cole o comando abaixo, aperte Enter e abra o app de novo:
+      ```bash
+      xattr -cr /Applications/Caca-Cliente.app
+      ```
+   Esse comando só tira o aviso de quarentena do download — não mexe no app.
+
+   > No macOS 14 ou mais antigo também funciona **botão direito no app → Abrir → Abrir**.
+
+   Isso só precisa ser feito **uma vez**. Depois, é abrir normalmente.
 
 ### 🐧 Linux
 
@@ -195,8 +207,8 @@ Em **Exportar**, baixe a planilha em **CSV** ou **Excel** com todos os leads e c
 **Windows: "O acesso a este arquivo foi bloqueado".**
 - Botão direito no `.exe` → **Propriedades** → marque **Desbloquear** → **OK**. Depois abra de novo.
 
-**Mac: "não pode ser aberto" mesmo com o botão direito.**
-- Rode `xattr -cr /Applications/Caca-Cliente.app` no Terminal e tente de novo.
+**Mac: "O item Caca-Cliente não foi aberto" / "não pode ser aberto" / "está danificado".**
+- Clique em **OK** (não em "Mover para o Lixo") e libere em **Ajustes do Sistema → Privacidade e Segurança → Abrir Mesmo Assim**, ou rode `xattr -cr /Applications/Caca-Cliente.app` no Terminal. Detalhes em [Instalar → Mac](#-mac).
 
 **Quero usar com meu sócio.**
 - Cada um instala o app no próprio computador. Os leads de cada um ficam salvos localmente.
